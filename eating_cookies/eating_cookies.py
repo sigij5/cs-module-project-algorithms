@@ -13,13 +13,13 @@ Returns: an integer
 #     else:
 #         return eating_cookies(n-1) + eating_cookies(n-2) + eating_cookies(n-3)
 
-def eating_cookies(n, mem):
+def eating_cookies(n, mem={}):
     if n == 0:
         return 1
     if n < 3:
         return n
-    elif mem[n] > 0:
-        return mem[n]
+    elif mem[n] > 0:  
+        return mem[n]  
     else:
         mem[n] = eating_cookies(n-1, mem) + eating_cookies(n-2, mem) + eating_cookies(n-3, mem)
         return mem[n]

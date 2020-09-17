@@ -3,15 +3,24 @@ Input: a List of integers where every int except one shows up twice
 Returns: an integer
 '''
 def single_number(arr):
-    arr.sort()
-    i = 0
-    while i < len(arr) - 1:
-        if arr[i] == arr[i+1]:
-            arr.pop(i+1)
-            arr.pop(i)
+    # arr.sort()
+    # i = 0
+    # while i < len(arr) - 1:
+    #     if arr[i] == arr[i+1]:
+    #         arr.pop(i+1)
+    #         arr.pop(i)
+    #     else:
+    #         i+=1
+    # return arr[0]
+    set = set()
+
+    for num in arr:
+        if num in set:
+            set.remove(num)
         else:
-            i+=1
-    return arr[0]
+            set.add(num)
+
+    return list(set)[0]
 
 
 if __name__ == '__main__':
